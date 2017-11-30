@@ -1,0 +1,7 @@
+ps:
+1、所有的代码基于springboot 1.4.2.RELEASE
+2、部分代码引用于springboot官方例子
+
+| Sample | Description
+| link:spring-boot-practice-simple[spring-boot-practice-simple]
+| JMS consumer and producer using Apache ActiveMQ
