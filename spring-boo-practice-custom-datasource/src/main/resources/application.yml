@@ -1,0 +1,21 @@
+druid:
+  jdbcUrl: jdbc:mysql://localhost:3306/db1?useSSL=false&requireSSL=false
+  driverClass: com.mysql.jdbc.Driver
+  username: root
+  password: root
+  filters: stat
+  maxActive: 20
+  initialSize: 1
+  maxWait: 30000
+  minIdle: 10
+  maxIdle: 15
+  timeBetweenEvictionRunsMillis: 60000
+  minEvictableIdleTimeMillis: 300000
+  validationQuery: SELECT 1
+  testWhileIdle: true
+  testOnBorrow: false
+  testOnReturn: false
+  maxOpenPreparedStatements: 20
+  removeAbandoned: true
+  removeAbandonedTimeout: 1800
+  logAbandoned: true

@@ -13,6 +13,7 @@
         <module>spring-boot-practice-jsp</module>
         <module>spring-boot-paractice-html</module>
         <module>spring-boot-paractice-data-jpa</module>
+        <module>spring-boo-practice-custom-datasource</module>
     </modules>
 
     <parent>
