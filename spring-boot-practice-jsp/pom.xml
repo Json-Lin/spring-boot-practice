@@ -8,7 +8,7 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>spring-boot-practice-jsp</artifactId>
     <packaging>war</packaging>
-    <name>spring-boot-practice-jsp Maven Webapp</name>
+    <name>spring-boot-practice-jsp</name>
     <url>http://maven.apache.org</url>
     <dependencies>
         <dependency>
