@@ -1,0 +1,5 @@
+1、使用jpa包自动添加hibernate依赖
+2、使用hibernateTemplate需要设置sessionFactory
+3、springboot会自动注入DataSource，但是在配置文件中必须以sprping.datasource.*开头的配置项，
+4、默认使用Tomcat连接池
+5、springboot自动注入JdbcTemplate

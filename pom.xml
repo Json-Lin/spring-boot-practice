@@ -12,6 +12,7 @@
         <module>spring-boot-practice-simple</module>
         <module>spring-boot-practice-jsp</module>
         <module>spring-boot-paractice-html</module>
+        <module>spring-boot-paractice-data-jpa</module>
     </modules>
 
     <parent>
@@ -20,11 +21,32 @@
         <version>1.4.2.RELEASE</version>
     </parent>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>19.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.16.10</version>
+        </dependency>
+    </dependencies>
+
     <build>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                </configuration>
             </plugin>
         </plugins>
     </build>
