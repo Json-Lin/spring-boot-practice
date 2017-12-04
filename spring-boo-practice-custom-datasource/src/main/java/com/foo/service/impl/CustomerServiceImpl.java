@@ -27,5 +27,8 @@ public class CustomerServiceImpl implements CustomerService {
         jdbcTemplate.update(INSERT_CUSTOMER, customer.getNikeName(),
                 customer.getEmail(), customer.getMobile(),
                 customer.getPhone(), customer.getAddress());
+        if("rollbackUser".equals(customer.getNikeName())){
+            throw new RuntimeException("test rollback on runtimeException.");
+        }
     }
 }

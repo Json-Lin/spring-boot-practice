@@ -10,35 +10,28 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
+import java.math.BigDecimal;
 
 /**
  * @author JasonLin
  * @version V1.0
- * @date 2017/12/1
+ * @date 2017/12/4
  */
 @Setter
 @Getter
 @Entity
-@Table(name = "customer")
-public class Customer implements Serializable {
-    private static final long serialVersionUID = -7896459795783095454L;
+@Table(name = "account_ccb")
+public class AccountCCB implements Serializable{
+
+    private static final long serialVersionUID = 1476688047241463855L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "nike_name")
-    private String nikeName;
+    @Column
+    private Long customer;
 
     @Column
-    private String email;
-
-    @Column
-    private String mobile;
-
-    @Column
-    private String phone;
-
-    @Column
-    private String address;
+    private BigDecimal balance;
 }
