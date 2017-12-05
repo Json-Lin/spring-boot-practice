@@ -15,6 +15,7 @@
         <module>spring-boot-paractice-data-jpa</module>
         <module>spring-boo-practice-custom-datasource</module>
         <module>spring-boot-practice-multiple-datasource</module>
+        <module>spring-boot-practice-atomikos</module>
     </modules>
 
     <parent>
