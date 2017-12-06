@@ -2,7 +2,3 @@ ps:
 1、所有的代码基于springboot 1.4.2.RELEASE
 2、部分代码引用于springboot官方例子
 3、为了方便parent、guava、lombok包在父工程引入，如需将子工程单独以jar包(war包在Tomcat容器)运行，将父工程的依赖单独引入，再打包运行。
-
-| Sample | Description
-| link:spring-boot-practice-simple[spring-boot-practice-simple]
-| JMS consumer and producer using Apache ActiveMQ
