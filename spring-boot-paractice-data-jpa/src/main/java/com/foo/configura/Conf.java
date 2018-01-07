@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.orm.hibernate5.HibernateTemplate;
+import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 
 import java.util.Properties;
@@ -31,6 +32,11 @@ public class Conf {
         sessionFactory.setHibernateProperties(properties);
         sessionFactory.setPackagesToScan("com.foo.model");
         return sessionFactory;
+    }
+
+    @Bean("transactionManager")
+    HibernateTransactionManager getHibernateTransactionManager(@Qualifier("sessionFactory") SessionFactory sessionFactory){
+        return new HibernateTransactionManager(sessionFactory);
     }
 
     @Bean("hibernateTemplate")

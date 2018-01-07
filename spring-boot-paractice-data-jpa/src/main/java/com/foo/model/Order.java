@@ -42,6 +42,9 @@ public class Order implements Serializable {
     @Column(name = "purchase_quantity")
     private Integer purchaseQuantity;
 
+    /**
+     * 品种数量
+     */
     @Column(name = "purchase_kinds")
     private Integer purchaseKinds;
 

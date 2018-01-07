@@ -36,14 +36,14 @@ public class TestOrderService {
         orderItem1.setSalePrice(new BigDecimal("9.99"));
         orderItem1.setOrder(order);
         orderItem1.setProductSale(1222021L);
-        orderItem1.setPurchasequantity(1);
+        orderItem1.setPurchaseQuantity(1);
 
         OrderItem orderItem2 = new OrderItem();
         orderItem2.setListPrice(new BigDecimal("8.5"));
         orderItem2.setSalePrice(new BigDecimal("8.0"));
         orderItem2.setOrder(order);
         orderItem2.setProductSale(1222056L);
-        orderItem2.setPurchasequantity(2);
+        orderItem2.setPurchaseQuantity(2);
 
         orderItems.add(orderItem1);
         orderItems.add(orderItem2);
