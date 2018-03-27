@@ -34,33 +34,28 @@ public class OrderItem implements Serializable{
     @JoinColumn(name = "_order")
     private Order order;
 
+    /**
+     * 商品ID
+     */
     @Column(name = "product_sale")
     private Long productSale;
 
+    /**
+     * 购买数量
+     */
     @Column(name = "purchase_quantity")
-    private Integer purchasequantity;
+    private Integer purchaseQuantity;
 
+    /**
+     * 码洋
+     */
     @Column(name = "list_price")
     private BigDecimal listPrice;
 
+    /**
+     * 实洋
+     */
     @Column(name = "sale_price")
     private BigDecimal salePrice;
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        OrderItem orderItem = (OrderItem) o;
-
-        if (order != null ? !order.equals(orderItem.order) : orderItem.order != null) return false;
-        return productSale != null ? productSale.equals(orderItem.productSale) : orderItem.productSale == null;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = order != null ? order.hashCode() : 0;
-        result = 31 * result + (productSale != null ? productSale.hashCode() : 0);
-        return result;
-    }
 }

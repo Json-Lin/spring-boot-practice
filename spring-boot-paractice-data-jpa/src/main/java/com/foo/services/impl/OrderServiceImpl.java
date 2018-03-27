@@ -35,6 +35,7 @@ public class OrderServiceImpl implements OrderService {
         initOrder(order);
         orderDao.save(order);
         LOG.info("create order successed,orderId:" + order.getId());
+//        throw new RuntimeException("test exception");
     }
 
     private void checkOrder(Order order) {
@@ -50,7 +51,7 @@ public class OrderServiceImpl implements OrderService {
         for (OrderItem orderItem : order.getItemList()) {
             totalListPrice = totalListPrice.add(orderItem.getListPrice());
             totalSalePrice = totalSalePrice.add(orderItem.getSalePrice());
-            purchaseQuantity += orderItem.getPurchasequantity();
+            purchaseQuantity += orderItem.getPurchaseQuantity();
         }
         order.setTotalListPrice(totalListPrice);
         order.setTotalSalePrice(totalSalePrice);

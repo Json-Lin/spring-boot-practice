@@ -3,7 +3,7 @@ spring:
     url: jdbc:mysql://localhost:3306/db_order?useSSL=false&requireSSL=false
     driver-class-name: com.mysql.jdbc.Driver
     username: root
-    password: root
+    password: 123456
     tomcat:
       max-wait: 10000
       min-idle: 0
