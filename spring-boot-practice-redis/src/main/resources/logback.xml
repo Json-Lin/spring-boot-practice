@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    
+    <property name="log.context.name" value="spring-boot-practice-redis" />
+    <property name="log.charset" value="UTF-8" />
+    <property name="log.pattern" value="[ %-5level] [%date] [%thread] %logger{96} [%line] - %msg%n" />
+    
+    <contextName>${log.context.name}</contextName>
+
+    <!-- 控制台日志 -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder charset="${log.charset}">
+            <pattern>${log.pattern}</pattern>
+        </encoder>
+    </appender>
+    <!-- 日志文件 -->
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    	<!-- 设置日志输出格式、字符编码 -->
+        <encoder>
+            <pattern>${log.pattern}</pattern>
+            <charset>${log.charset}</charset>
+        </encoder>
+		
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            
+            <!-- <fileNamePattern>c:\\log\\${log.all.context.name}-%d{yyyy-MM-dd}.%i.log</fileNamePattern> -->
+           
+            <!-- 日志文件路径 -->
+            <fileNamePattern>../logs/${log.context.name}-%d{yyyy-MM-dd}.%i.log</fileNamePattern> 
+            <!-- 日志将会每日归档，或者超过200MB -->
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>200MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+		
+		<!-- 过滤所有低于DEBUG级别的日志信息 -->
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>DEBUG</level>
+        </filter>
+        <!-- Safely log to the same file from multiple JVMs. Degrades performance! -->
+        <prudent>true</prudent>
+    </appender>
+    <root>
+        <level value="INFO" />
+        <appender-ref ref="STDOUT" />
+        <appender-ref ref="FILE" />
+    </root>
+    
+    <logger name="org.apache.zookeeper" level="WARN" />
+    <logger name="org.apache.curator" level="WARN" />
+</configuration>

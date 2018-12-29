@@ -11,17 +11,18 @@
     <modules>
         <module>spring-boot-practice-simple</module>
         <module>spring-boot-practice-jsp</module>
-        <module>spring-boot-paractice-html</module>
-        <module>spring-boot-paractice-data-jpa</module>
+        <module>spring-boot-practice-html</module>
+        <module>spring-boot-practice-data-jpa</module>
         <module>spring-boo-practice-custom-datasource</module>
         <module>spring-boot-practice-multiple-datasource</module>
         <module>spring-boot-practice-atomikos</module>
+        <module>spring-boot-practice-redis</module>
     </modules>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>1.4.2.RELEASE</version>
+        <version>2.1.1.RELEASE</version>
     </parent>
 
     <dependencies>
