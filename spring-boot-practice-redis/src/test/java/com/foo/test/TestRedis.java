@@ -1,6 +1,7 @@
 package com.foo.test;
 
 import com.foo.RedisApplicationStarter;
+import com.foo.service.RedisCacheService;
 import com.foo.service.RedisService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -22,6 +23,9 @@ public class TestRedis {
     @Autowired
     RedisService redisServie;
 
+    @Autowired
+    RedisCacheService redisCacheService;
+
     @Test
     public void lpushValuesTest() {
         redisServie.lpushValues("spring-data-redis", "aaa", "fsd", "45646");
@@ -30,5 +34,12 @@ public class TestRedis {
     @Test
     public void lpopTest() {
         redisServie.lpop("spring-data-redis");
+    }
+
+    @Test
+    public void cacheTest() {
+        redisCacheService.getValue("key2");
+        redisCacheService.getValue("key1");
+        redisCacheService.getValue("key3");
     }
 }
