@@ -14,17 +14,27 @@
  * limitations under the License.
  */
 
-package sample.activemq;
+package com.foo.producer;
 
-import org.springframework.jms.annotation.JmsListener;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.jms.core.JmsMessagingTemplate;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
-//@Component
-public class Consumer {
+import javax.jms.Queue;
 
-	@JmsListener(destination = "sample.queue")
-	public void receiveQueue(String text) {
-		System.out.println(text);
-	}
+@Component
+public class Producer {
 
+    @Autowired
+    private JmsMessagingTemplate jmsMessagingTemplate;
+
+    @Autowired
+    private Queue sampleQueue;
+
+    @Scheduled(cron = "0/1 * * * * ?")
+    public void send() throws Exception {
+        this.jmsMessagingTemplate.convertAndSend(sampleQueue, "定时消息" + System.currentTimeMillis());
+    }
 }

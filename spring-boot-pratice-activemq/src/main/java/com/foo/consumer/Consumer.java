@@ -14,32 +14,22 @@
  * limitations under the License.
  */
 
-package sample.activemq;
+package com.foo.consumer;
 
-import javax.jms.Queue;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.CommandLineRunner;
-import org.springframework.jms.core.JmsMessagingTemplate;
+import org.springframework.jms.annotation.JmsListener;
 import org.springframework.stereotype.Component;
 
 @Component
-public class Producer implements CommandLineRunner {
+public class Consumer {
 
-	@Autowired
-	private JmsMessagingTemplate jmsMessagingTemplate;
-
-	@Autowired
-	private Queue queue;
-
-	@Override
-	public void run(String... args) throws Exception {
-		send("Sample message");
-		System.out.println("Message was sent to the Queue");
-	}
-
-	public void send(String msg) {
-		this.jmsMessagingTemplate.convertAndSend(this.queue, msg);
-	}
+    @JmsListener(destination = "${test.queue.name}", concurrency = "1-20")
+    public void receiveQueue(String text) {
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println(Thread.currentThread().getName() + " message:" + text);
+    }
 
 }
