@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.foo.mapper.CountryMapper">
+
+
+    <select id="findById" parameterType="Long" resultType="com.foo.model.Country">
+        select * from country where id = #{id}
+    </select>
+
+   <!-- <insert id="create" useGeneratedKeys="true" keyProperty="id" parameterType="String">
+        insert into Country (`name`) values (#{name})
+    </insert>-->
+
+    <!--<insert id="create" parameterType="String">
+        <selectKey keyProperty="id" order="AFTER" resultType="Long">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+        insert into Country (`name`) values (#{name})
+    </insert>-->
+
+    <insert id="create" parameterType="String">
+        <selectKey resultType="Long" keyProperty="id" order="AFTER">
+            select @@IDENTITY as id
+        </selectKey>
+        insert into Country (`name`) values (#{name})
+    </insert>
+
+</mapper>

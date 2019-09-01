@@ -1,10 +1,12 @@
 mybatis:
   type-aliases-package: com.foo.model
   type-handlers-package: com.foo.typehandler
+  mapper-locations: classpath:config/mapper/*.xml
   configuration:
     map-underscore-to-camel-case: true
     default-fetch-size: 100
     default-statement-timeout: 30
+
 
 spring:
   profiles:
